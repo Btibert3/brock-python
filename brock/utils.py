@@ -2,7 +2,7 @@ import itertools
 import pandas as pd
 
 # ?expand.grid in R -- lite version
-def expand_grid(x, y, colnames=None, *argv):
+def expand_grid2(x, y, colnames=None):
     """
     A relatively comparable function to expand.grid in R
     
@@ -29,48 +29,25 @@ def expand_grid(x, y, colnames=None, *argv):
     return(combos)
 
 
-## another function
-def test_argv(*argv):
-  # data validation
-  assert len(argv) > 0, "must include 1 or more list objects"
-  x = list()
-  # the tests
-  if argv:
-    for arg in argv:
-      x.append(arg)
-  # return stuff
-  return(x)
 
-
-## another function
-def test_kwargs(**kwargs):
-  # data validation
-  assert len(kwargs) > 0, "must include at least 1 argument"
+def expand_grid(*itrs, cols=None):
   
-  # dict comprehension
-  x = {'{}'.format(key) for key, value in kwargs}
+  # colname validation and definition
+  if cols:
+    assert isinstance(cols, list), "cols must be a list"
+    assert len(cols) == len(itrs), "The number of column names must match the length of *itrs"
+    cnames = cols
+  else:
+    cnames = ["var{}".format(i+1) for i in range(len(itrs))]
   
-  # return stuff
-  return(x)
+  # modified from: https://stackoverflow.com/a/12131385/155406
+  product = list(itertools.product(*itrs))
+  
+  # make the dataframe
+  df = pd.DataFrame(product, columns=cnames)
+  return(df)
 
 
-## args
-def test_kwargs(*args):
-  # data validation
-  assert len(args) > 0, "must include at least 1 argument"
-  
-  # dict comprehension
-  x = {('v{}'.format(key), value) for (key, value) in enumerate(args)}
-  
-  # return stuff
-  return(x)
-
-## asnother
-def product_dict(**kwargs):
-    keys = kwargs.keys()
-    vals = kwargs.values()
-    for instance in itertools.product(*vals):
-        yield dict(zip(keys, instance))
 
 
 
