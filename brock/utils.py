@@ -4,11 +4,9 @@ import pandas as pd
 # ?expand.grid in R -- lite version
 def expand_grid2(x, y, colnames=None):
     """
-    A relatively comparable function to expand.grid in R
+    A relatively comparable function to expand.grid in R from two list inputs.
     
     Returns a dataframe
-    
-    TODO: remove hardcoding and multiple 
     """
     
     # checks
@@ -31,6 +29,14 @@ def expand_grid2(x, y, colnames=None):
 
 
 def expand_grid(*itrs, cols=None):
+    """
+    Take an arbitrary number of list inputs and return a dataframe.
+    
+    Parameters:
+        cols (list): a list of column names, must be of same len as *itrs
+    
+    Returns a dataframe
+    """
   
   # colname validation and definition
   if cols:
