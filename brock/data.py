@@ -30,6 +30,6 @@ def state_name():
 # state_abbreviation
 def state_abb():
   # get the dict names from states in brock utils module
-  s = states()
+  s = utils.states()
   # return 
   return(s.values())
