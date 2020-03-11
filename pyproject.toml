@@ -3,7 +3,7 @@ requires = ["flit_core >=2,<3"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
-module = "brock"
+module = "pybrock"
 author = "Brock Tibert"
 author-email = "btibert3@gmail.com"
 home-page = "https://github.com/Btibert3/brock"
