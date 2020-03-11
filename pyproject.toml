@@ -6,7 +6,7 @@ build-backend = "flit_core.buildapi"
 module = "pybrock"
 author = "Brock Tibert"
 author-email = "btibert3@gmail.com"
-home-page = "https://github.com/Btibert3/brock"
+home-page = "https://github.com/Btibert3/brock-python"
 requires=[
     "pandas",
     "pantab",
