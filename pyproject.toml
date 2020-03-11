@@ -10,7 +10,8 @@ home-page = "https://github.com/Btibert3/brock"
 requires=[
     "pandas",
     "pantab",
-    "us"
+    "us",
+    "requests"
 ]
 requires-python=">=3.6"
 description-file="README.md"
