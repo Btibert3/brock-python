@@ -22,9 +22,14 @@ def letters(upper=False, n=None):
 # state_name
 def state_name():
   # get the dict names from states in brock utils module
-  s = states()
-  
+  s = utils.states()
   # return 
   return(s.keys())
     
   
+# state_abbreviation
+def state_abb():
+  # get the dict names from states in brock utils module
+  s = states()
+  # return 
+  return(s.values())
