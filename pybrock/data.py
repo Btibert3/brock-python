@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import string
-from brock import utils
+from pybrock import utils
 
 
 # letters
