@@ -6,14 +6,11 @@ build-backend = "flit_core.buildapi"
 module = "brock"
 author = "Brock Tibert"
 author-email = "btibert3@gmail.com"
-home-page = "https://brocktibert.com"
-
-author = "Brock Tibert"
-author-email = "btibert3@gmail.com"
-home-page = "https://github.com/Btibert3/pypeds"
+home-page = "https://github.com/Btibert3/brock"
 requires=[
     "pandas",
-    "pantab"
+    "pantab",
+    "us"
 ]
 requires-python=">=3.6"
 description-file="README.md"

@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import string
+from brock import utils
 
 
 # letters
@@ -20,4 +21,10 @@ def letters(upper=False, n=None):
   
 # state_name
 def state_name():
+  # get the dict names from states in brock utils module
+  s = states()
+  
+  # return 
+  return(s.keys())
+    
   

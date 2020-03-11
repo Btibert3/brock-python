@@ -28,15 +28,15 @@ def expand_grid2(x, y, colnames=None):
 
 
 
-def expand_grid(*itrs, cols=None):
-    """
-    Take an arbitrary number of list inputs and return a dataframe.
-    
-    Parameters:
-        cols (list): a list of column names, must be of same len as *itrs
-    
-    Returns a dataframe
-    """
+def expand_grid(cols=None, *itrs):
+  """
+  Take an arbitrary number of list inputs and return a dataframe.
+  
+  Parameters:
+      cols (list): a list of column names, must be of same len as *itrs
+  
+  Returns a dataframe
+  """
   
   # colname validation and definition
   if cols:
@@ -54,6 +54,69 @@ def expand_grid(*itrs, cols=None):
   return(df)
 
 
+# helper to return a dict of state data
+def states():
+  # from https://gist.github.com/rogerallen/1583593
+  us_state_abbrev = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Northern Mariana Islands':'MP',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Palau': 'PW',
+    'Pennsylvania': 'PA',
+    'Puerto Rico': 'PR',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virgin Islands': 'VI',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY',
+    }
+  
+  # return
+  return(us_state_abbrev)
 
 
 
