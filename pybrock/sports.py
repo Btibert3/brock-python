@@ -70,9 +70,11 @@ def nhl_parse_pbp(gid='2019020010'):
         players_df = pd.concat([players_df, tmp_pdf], axis=1)
       # append the data
       pbp = pd.concat([pbp, players_df], axis=1)
+    #  ------- players
+    test = 'players'  
         
-      # return the data
-      return(pbp)
+  # return the data
+  return(pbp)
 
 
 
