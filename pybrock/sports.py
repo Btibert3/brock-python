@@ -28,6 +28,7 @@ def nhl_parse_pbp(gid='2019020010'):
   for i, play in enumerate(plays):
     # setup the dataframe row for the event
     pbp = pd.DataFrame({'gid':[gid]})
+    
     # ------- result 
     test = 'result'
     if test in play.keys():
@@ -37,6 +38,7 @@ def nhl_parse_pbp(gid='2019020010'):
       r.columns = r.columns.str.lower()
       pbp = pd.concat([pbp, r], axis=1)
       del r
+    
     #  ------- coordinates
     test = 'coordinates'
     if test in play.keys():
@@ -48,6 +50,7 @@ def nhl_parse_pbp(gid='2019020010'):
         c.columns = c.columns.str.lower()
         pbp = pd.concat([pbp, c], axis=1)
         del c
+    
     #  ------- team
     test = 'team'
     if test in play.keys():
@@ -57,6 +60,7 @@ def nhl_parse_pbp(gid='2019020010'):
       t.columns = t.columns.str.lower()
       pbp = pd.concat([pbp, t], axis=1)
       del t
+    
     #  ------- players
     test = 'players'
     if test in play.keys():
@@ -70,11 +74,31 @@ def nhl_parse_pbp(gid='2019020010'):
         players_df = pd.concat([players_df, tmp_pdf], axis=1)
       # append the data
       pbp = pd.concat([pbp, players_df], axis=1)
-    #  ------- players
-    test = 'players'  
-        
+    
+    #  ------- about
+    test = 'about'
+    if test in play.keys():
+      tmp = play[test]
+      # extract the goals - we want 1 row worth
+      goals = pd.DataFrame.from_dict([tmp['goals']])
+      goals.columns = "goals_" + goals.columns
+      del tmp['goals']
+      # the about data
+      a = pd.DataFrame([tmp])
+      a.columns = test + "_" + a.columns
+      a.columns = a.columns.str.lower()
+      # combine
+      a = pd.concat([a, goals], axis=1)
+      pbp = pd.concat([pbp, a], axis=1)
+      # remove
+      del a
+      del goals
+    
+    # bind to the pbp
+    df = df.append(pbp, ignore_index=True)
+    
   # return the data
-  return(pbp)
+  return(df)
 
 
 
