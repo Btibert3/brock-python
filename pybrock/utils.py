@@ -120,3 +120,33 @@ def states():
 
 
 
+def sessionize(df = None, user = None, timestep=None):
+  """
+  For a given list of columns, sessionize the data relative to a timestamp.
+  
+  Parameters:
+      grouping (list): a list of column names that define the user.  
+                       This is evaluated against the timestamps of interactions.
+  
+  References:
+    https://stackoverflow.com/a/50311285/155406
+
+  Returns a dataframe
+  """
+  # tests
+  #assert isinstance(df, )
+  # dict, build
+
+  # sort by user and timestep
+  #sort_vals = user + timestep
+  #df = df.sort_values(by=)
+
+
+
+
+
+  pass
+
+
+# another
+
